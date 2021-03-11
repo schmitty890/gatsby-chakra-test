@@ -1,0 +1,48 @@
+import React, { Component } from "react"
+import axios from "axios"
+
+class TestTwo extends Component {
+  state = {
+    bookList: [],
+    version: null
+  }
+  /**
+   * React lifecycle method to fetch the data
+   */
+  async componentDidMount() {
+
+    try {
+      // fetch data from a url endpoint
+      const response = await axios.get("https://randomuser.me/api/?results=1");
+      console.log(response);
+      console.log(this.state)
+      this.setState({version: response.data.info.version})
+    } catch (error) {
+      console.log(error); // catches both errors
+    }
+    // axios.get("https://randomuser.me/api/?results=1")
+    //   .then(result => {
+    //     console.log(result)
+    //     // const bookData = result.data
+    //     // this.setState({ bookList: bookData.books })
+    //     // this.rebuildIndex()
+    //   })
+    //   .catch(err => {
+    //     // this.setState({ isError: true })
+    //     console.log("====================================")
+    //     console.log(`Something bad happened while fetching the data\n${err}`)
+    //     console.log("====================================")
+    //   })
+  }
+
+  render() {
+    const { version } = this.state
+    // const queryResults = searchQuery === "" ? bookList : searchResults
+    return (
+      <div>
+        here is test two {version}
+      </div>
+    )
+  }
+}
+export default TestTwo
