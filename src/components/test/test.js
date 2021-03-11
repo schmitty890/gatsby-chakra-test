@@ -23,7 +23,6 @@ const data = {
 
 
 async function fetchTheData() {
-  console.log(this.state)
   try {
     // fetch data from a url endpoint
     const response = await axios.get("https://randomuser.me/api/?results=1");
