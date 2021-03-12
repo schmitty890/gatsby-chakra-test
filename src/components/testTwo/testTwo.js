@@ -36,16 +36,21 @@ class TestTwo extends Component {
     testInsideComponent()
   }
 
+  logState = (e, logOutTheState) => {
+    logOutTheState()
+  }
+
   render() {
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
       <UserContext.Consumer>
-        {({user, testInsideComponent}) => 
+        {({user, testInsideComponent, logOutTheState}) => 
         <div>
           <div>
             here is test two {user}
           </div>
           <Button colorScheme="blue" onClick={e => this.testItOut(e, testInsideComponent)}>test btn 2</Button>
+          <Button colorScheme="blue" onClick={e => this.logState(e, logOutTheState)}>log out the current state</Button>
         </div>
         }
       </UserContext.Consumer>
