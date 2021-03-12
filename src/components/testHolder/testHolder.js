@@ -7,12 +7,10 @@ import UserContext from "../../UserContext"
 
 class TestHolder extends Component {
 
-
   render() {
-    console.log(this.props)
     return (
       <UserContext.Consumer>
-        {(user) =>
+        {({user}) =>
           <div>
             <Test></Test>
             <TestTwo></TestTwo>

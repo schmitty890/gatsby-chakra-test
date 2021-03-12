@@ -26,12 +26,18 @@ class Home extends Component {
     version: null
   }
 
+  changeCurrentUser = () => {
+    this.setState({currentUser: 'Bob'})
+  }
+
   render() {
-    // const { version } = this.state
-    // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
       <ChakraProvider>
-        <UserContext.Provider value={this.state.currentUser}>
+        <UserContext.Provider value={{
+          user: this.state.currentUser,
+          changeCurrentUser: this.changeCurrentUser
+          }
+        }>
           <Box bg="" w="100%" p={4} color="green">
             <div>Hello world!</div>
             <TestHolder />

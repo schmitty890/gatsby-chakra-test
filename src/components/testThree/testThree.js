@@ -28,7 +28,7 @@ class TestTwo extends Component {
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
       <UserContext.Consumer>
-        {(user) =>
+        {({user}) =>
           <div>
             here is test three {user}
           </div>

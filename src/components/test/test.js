@@ -36,8 +36,11 @@ async function fetchTheData() {
 const Test = () => {
   return (
     <UserContext.Consumer>
-      {(user) => 
-        <div>{user}</div>
+      {({user, changeCurrentUser}) => 
+        <div>
+          <div>{user}</div>
+          <Button colorScheme="blue" onClick={changeCurrentUser}>test btn</Button>
+        </div>
       } 
     </UserContext.Consumer>
   )

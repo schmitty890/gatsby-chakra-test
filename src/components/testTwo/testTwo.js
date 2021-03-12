@@ -3,11 +3,6 @@ import axios from "axios"
 import UserContext from "../../UserContext"
 
 class TestTwo extends Component {
-  state = {
-    bookList: [],
-    currentUser: 'James',
-    version: null
-  }
   /**
    * React lifecycle method to fetch the data
    */
@@ -17,8 +12,6 @@ class TestTwo extends Component {
       // fetch data from a url endpoint
       const response = await axios.get("https://randomuser.me/api/?results=1");
       console.log(response);
-      console.log(this.state)
-      this.setState({version: response.data.info.version})
     } catch (error) {
       console.log(error); // catches both errors
     }
@@ -35,19 +28,15 @@ class TestTwo extends Component {
     //     console.log(`Something bad happened while fetching the data\n${err}`)
     //     console.log("====================================")
     //   })
-    setTimeout(() => {
-      this.setState({currentUser: "bob"})
-    }, 2000);
   }
 
   render() {
-    const { version } = this.state
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
       <UserContext.Consumer>
-        {(user) => 
+        {({user}) => 
         <div>
-          {user}here is test two {version} {user}
+          here is test two {user}
         </div>
         }
       </UserContext.Consumer>
