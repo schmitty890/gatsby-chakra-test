@@ -30,12 +30,17 @@ class Home extends Component {
     this.setState({currentUser: 'Bob'})
   }
 
+  testInsideComponent = () => {
+    console.log('using within func in component')
+  }
+
   render() {
     return (
       <ChakraProvider>
         <UserContext.Provider value={{
           user: this.state.currentUser,
-          changeCurrentUser: this.changeCurrentUser
+          changeCurrentUser: this.changeCurrentUser,
+          testInsideComponent: this.testInsideComponent
           }
         }>
           <Box bg="" w="100%" p={4} color="green">

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios"
+import { Button } from "@chakra-ui/react"
 import UserContext from "../../UserContext"
 
 class TestTwo extends Component {
@@ -30,13 +31,21 @@ class TestTwo extends Component {
     //   })
   }
 
+  // here we are passing the "testInsideComponent function from the main page into a component, and using it in this components function"
+  testItOut = (e, testInsideComponent) => {
+    testInsideComponent()
+  }
+
   render() {
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
       <UserContext.Consumer>
-        {({user}) => 
+        {({user, testInsideComponent}) => 
         <div>
-          here is test two {user}
+          <div>
+            here is test two {user}
+          </div>
+          <Button colorScheme="blue" onClick={e => this.testItOut(e, testInsideComponent)}>test btn 2</Button>
         </div>
         }
       </UserContext.Consumer>
