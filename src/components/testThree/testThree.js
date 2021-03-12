@@ -1,11 +1,8 @@
 import React, { Component } from "react"
 import axios from "axios"
+import UserContext from "../../UserContext"
 
 class TestTwo extends Component {
-  state = {
-    bookList: [],
-    version: null
-  }
   /**
    * React lifecycle method to fetch the data
    */
@@ -28,12 +25,15 @@ class TestTwo extends Component {
   }
 
   render() {
-    const { version } = this.state
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
-      <div>
-        here is test three {version}
-      </div>
+      <UserContext.Consumer>
+        {(user) =>
+          <div>
+            here is test three {user}
+          </div>
+        }
+      </UserContext.Consumer>
     )
   }
 }

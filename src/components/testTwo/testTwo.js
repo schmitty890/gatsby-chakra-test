@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import axios from "axios"
+import UserContext from "../../UserContext"
 
 class TestTwo extends Component {
   state = {
     bookList: [],
+    currentUser: 'James',
     version: null
   }
   /**
@@ -33,15 +35,22 @@ class TestTwo extends Component {
     //     console.log(`Something bad happened while fetching the data\n${err}`)
     //     console.log("====================================")
     //   })
+    setTimeout(() => {
+      this.setState({currentUser: "bob"})
+    }, 2000);
   }
 
   render() {
     const { version } = this.state
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
-      <div>
-        here is test two {version}
-      </div>
+      <UserContext.Consumer>
+        {(user) => 
+        <div>
+          {user}here is test two {version} {user}
+        </div>
+        }
+      </UserContext.Consumer>
     )
   }
 }

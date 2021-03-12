@@ -1,6 +1,7 @@
 import React from "react"
 import { Button, Input, Stack } from "@chakra-ui/react"
 import axios from "axios"
+import UserContext from "../../UserContext"
 
 
 
@@ -32,19 +33,35 @@ async function fetchTheData() {
   }
 }
 
-export default function Test() {
+const Test = () => {
+  return (
+    <UserContext.Consumer>
+      {(user) => 
+        <div>{user}</div>
+      } 
+    </UserContext.Consumer>
+  )
+};
+
+export default Test;
+
+
+// export default function Test() {
   
 
-  return (
-    <div>
-      <div>{data.value1}</div>
-      <Button colorScheme="blue" onClick={fetchTheData}>test btn</Button>
-      <Stack spacing={3}>
-        <Input placeholder="extra small size" size="xs" />
-        <Input placeholder="small size" size="sm" />
-        <Input placeholder="medium size" size="md" />
-        <Input id="largeOne" placeholder="large size" size="lg" />
-      </Stack>
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       {this.props.currentUser}
+//       {/* <div>{data.value1}</div>
+//       <Button colorScheme="blue" onClick={fetchTheData}>test btn</Button>
+//       <Stack spacing={3}>
+//         <Input placeholder="extra small size" size="xs" />
+//         <Input placeholder="small size" size="sm" />
+//         <Input placeholder="medium size" size="md" />
+//         <Input id="largeOne" placeholder="large size" size="lg" />
+//       </Stack> */}
+//     </div>
+//   )
+// }
+
+
