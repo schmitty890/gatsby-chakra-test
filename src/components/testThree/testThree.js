@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios"
-import {UserConsumer} from "../../UserContext"
+import {UserConsumer} from "../../contexts/UserContext"
 
 class TestTwo extends Component {
   /**

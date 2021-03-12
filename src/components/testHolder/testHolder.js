@@ -3,7 +3,7 @@ import Test from "../test/test"
 import TestTwo from "../testTwo/testTwo"
 import TestThree from "../testThree/testThree"
 import axios from "axios"
-import {UserConsumer} from "../../UserContext"
+import {UserConsumer} from "../../contexts/UserContext"
 
 class TestHolder extends Component {
 

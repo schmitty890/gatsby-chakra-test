@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { Button } from "@chakra-ui/react"
-import {UserConsumer} from "../../UserContext"
+import {UserConsumer} from "../../contexts/UserContext"
 
 class TestTwo extends Component {
   /**

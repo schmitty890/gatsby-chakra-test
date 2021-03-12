@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { ChakraProvider, Box } from "@chakra-ui/react"
-import {UserProvider, UserConsumer} from "../UserContext"
+import {UserProvider, UserConsumer} from "../contexts/UserContext"
 import TestHolder from "../components/testHolder/testHolder"
 
 export default function Home() {
