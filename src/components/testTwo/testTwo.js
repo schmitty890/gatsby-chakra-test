@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios"
 import { Button } from "@chakra-ui/react"
-import UserContext from "../../UserContext"
+import {UserConsumer} from "../../UserContext"
 
 class TestTwo extends Component {
   /**
@@ -43,7 +43,7 @@ class TestTwo extends Component {
   render() {
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
-      <UserContext.Consumer>
+      <UserConsumer>
         {({user, testInsideComponent, logOutTheState}) => 
         <div>
           <div>
@@ -53,7 +53,7 @@ class TestTwo extends Component {
           <Button colorScheme="blue" onClick={e => this.logState(e, logOutTheState)}>log out the current state</Button>
         </div>
         }
-      </UserContext.Consumer>
+      </UserConsumer>
     )
   }
 }

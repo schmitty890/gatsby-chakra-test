@@ -1,7 +1,7 @@
 import React from "react"
 import { Button, Input, Stack } from "@chakra-ui/react"
 import axios from "axios"
-import UserContext from "../../UserContext"
+import {UserConsumer} from "../../UserContext"
 
 
 
@@ -35,14 +35,14 @@ async function fetchTheData() {
 
 const Test = () => {
   return (
-    <UserContext.Consumer>
+    <UserConsumer>
       {({user, changeCurrentUser}) => 
         <div>
           <div>{user}</div>
-          <Button colorScheme="blue" onClick={changeCurrentUser}>test btn</Button>
+          <Button colorScheme="blue" onClick={changeCurrentUser}>change name to bob</Button>
         </div>
       } 
-    </UserContext.Consumer>
+    </UserConsumer>
   )
 };
 

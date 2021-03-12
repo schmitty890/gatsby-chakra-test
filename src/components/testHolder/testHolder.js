@@ -3,13 +3,13 @@ import Test from "../test/test"
 import TestTwo from "../testTwo/testTwo"
 import TestThree from "../testThree/testThree"
 import axios from "axios"
-import UserContext from "../../UserContext"
+import {UserConsumer} from "../../UserContext"
 
 class TestHolder extends Component {
 
   render() {
     return (
-      <UserContext.Consumer>
+      <UserConsumer>
         {({user}) =>
           <div>
             <Test></Test>
@@ -18,7 +18,7 @@ class TestHolder extends Component {
             here is test holder where our state persists as name {user}
           </div>
         }
-      </UserContext.Consumer>
+      </UserConsumer>
     )
   }
 }

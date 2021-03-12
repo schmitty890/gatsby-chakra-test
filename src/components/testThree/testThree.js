@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios"
-import UserContext from "../../UserContext"
+import {UserConsumer} from "../../UserContext"
 
 class TestTwo extends Component {
   /**
@@ -27,13 +27,13 @@ class TestTwo extends Component {
   render() {
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
-      <UserContext.Consumer>
+      <UserConsumer>
         {({user}) =>
           <div>
             here is test three {user}
           </div>
         }
-      </UserContext.Consumer>
+      </UserConsumer>
     )
   }
 }
