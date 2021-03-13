@@ -2,6 +2,7 @@ import React from "react"
 import { Button, Input, Stack } from "@chakra-ui/react"
 import axios from "axios"
 import {UserConsumer} from "../../contexts/UserContext"
+import myData from "../../data/my-json-content.json"
 
 
 
@@ -40,6 +41,12 @@ const Test = () => {
         <div>
           <div>{user}</div>
           <Button colorScheme="blue" onClick={changeCurrentUser}>change name to bob</Button>
+          <h1>{myData.title}</h1>
+          <ul style={{ border: `1px solid red` }}>
+            {myData.content.map((data, index) => {
+              return <li key={`content_item_${index}`}>{data.item}</li>
+            })}
+          </ul>
         </div>
       } 
     </UserConsumer>
