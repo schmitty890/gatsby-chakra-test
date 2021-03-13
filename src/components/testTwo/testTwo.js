@@ -39,7 +39,7 @@ class TestTwo extends Component {
   logState = (e, logOutTheState) => {
     logOutTheState()
     get()
-    set()
+    set('test name')
   }
 
   render() {
