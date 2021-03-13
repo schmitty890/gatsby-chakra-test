@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import axios from "axios"
 import { Button } from "@chakra-ui/react"
 import {UserConsumer} from "../../contexts/UserContext"
-
+import { get, set } from "../../services/local-storage"
 class TestTwo extends Component {
   /**
    * React lifecycle method to fetch the data
@@ -38,6 +38,8 @@ class TestTwo extends Component {
 
   logState = (e, logOutTheState) => {
     logOutTheState()
+    get()
+    set()
   }
 
   render() {

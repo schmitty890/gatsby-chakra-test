@@ -7,6 +7,7 @@ import myData from "../../data/my-json-content.json"
 
 
 
+
 const data = {
   value1: 'test 1',
   value2: 'test2'
