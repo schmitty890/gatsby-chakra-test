@@ -8,6 +8,7 @@ class UserProvider extends Component {
     currentUser: "Jason",
     toggleCheck: false,
     selectOption: null,
+    radioOption: null,
   }
 
   changeCurrentUser = () => {
@@ -20,9 +21,15 @@ class UserProvider extends Component {
   }
 
   selectChange = e => {
-    console.log(e)
+    // console.log(e)
     const option = e.nativeEvent.target.value
     this.setState({ selectOption: option })
+  }
+
+  radioChange = e => {
+    console.log(e)
+    // const option = e.nativeEvent.target.value
+    this.setState({ radioOption: e })
   }
 
   testInsideComponent = () => {
@@ -43,6 +50,7 @@ class UserProvider extends Component {
           logOutTheState: this.logOutTheState,
           toggleCheck: this.getSwitchValue,
           selectChange: this.selectChange,
+          radioChange: this.radioChange,
         }}
       >
         {this.props.children}

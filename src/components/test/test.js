@@ -16,6 +16,8 @@ import {
   AlertTitle,
   AlertDescription,
   Select,
+  RadioGroup,
+  Radio,
 } from "@chakra-ui/react"
 import axios from "axios"
 import { UserConsumer } from "../../contexts/UserContext"
@@ -50,7 +52,13 @@ async function fetchTheData() {
 const Test = () => {
   return (
     <UserConsumer>
-      {({ user, changeCurrentUser, toggleCheck, selectChange }) => (
+      {({
+        user,
+        changeCurrentUser,
+        toggleCheck,
+        selectChange,
+        radioChange,
+      }) => (
         <div>
           <div>{user}</div>
           <Button colorScheme="blue" onClick={changeCurrentUser}>
@@ -92,6 +100,14 @@ const Test = () => {
               Removed
             </Badge>
           </Stack>
+
+          <RadioGroup onChange={radioChange}>
+            <Stack direction="row">
+              <Radio value="1">First</Radio>
+              <Radio value="2">Second</Radio>
+              <Radio value="3">Third</Radio>
+            </Stack>
+          </RadioGroup>
 
           <Flex>
             <Avatar src="https://bit.ly/sage-adebayo" />
