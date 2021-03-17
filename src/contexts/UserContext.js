@@ -1,19 +1,25 @@
 import React, { Component } from "react"
 
-const { Provider, Consumer } = React.createContext();
+const { Provider, Consumer } = React.createContext()
 // Context.Consumer, Context.Provider
 
 class UserProvider extends Component {
   state = {
-    currentUser: 'Jason'
+    currentUser: "Jason",
+    toggleCheck: false,
   }
 
   changeCurrentUser = () => {
-    this.setState({currentUser: 'Bob'})
+    this.setState({ currentUser: "Bob" })
+  }
+
+  getSwitchValue = e => {
+    const isChecked = e.nativeEvent.target.checked
+    this.setState({ toggleCheck: isChecked })
   }
 
   testInsideComponent = () => {
-    console.log('using within func in component')
+    console.log("using within func in component")
   }
 
   logOutTheState = () => {
@@ -21,18 +27,20 @@ class UserProvider extends Component {
   }
 
   render() {
-
     return (
-      <Provider value={{
-        user: this.state.currentUser,
-        changeCurrentUser: this.changeCurrentUser,
-        testInsideComponent: this.testInsideComponent,
-        logOutTheState: this.logOutTheState
-        }
-      }>{this.props.children}
+      <Provider
+        value={{
+          user: this.state.currentUser,
+          changeCurrentUser: this.changeCurrentUser,
+          testInsideComponent: this.testInsideComponent,
+          logOutTheState: this.logOutTheState,
+          toggleCheck: this.getSwitchValue,
+        }}
+      >
+        {this.props.children}
       </Provider>
     )
   }
 }
 
-export { UserProvider, Consumer as UserConsumer} ;
+export { UserProvider, Consumer as UserConsumer }

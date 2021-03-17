@@ -46,15 +46,10 @@ async function fetchTheData() {
   }
 }
 
-function getSwitchValue(e) {
-  console.log(e)
-  console.log(e.nativeEvent.target.checked)
-}
-
 const Test = () => {
   return (
     <UserConsumer>
-      {({ user, changeCurrentUser }) => (
+      {({ user, changeCurrentUser, toggleCheck }) => (
         <div>
           <div>{user}</div>
           <Button colorScheme="blue" onClick={changeCurrentUser}>
@@ -68,7 +63,7 @@ const Test = () => {
             <Switch
               id="email-alerts"
               colorScheme="red"
-              onChange={e => getSwitchValue(e)}
+              onChange={toggleCheck}
             />
           </FormControl>
 
