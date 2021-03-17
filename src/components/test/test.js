@@ -46,6 +46,11 @@ async function fetchTheData() {
   }
 }
 
+function getSwitchValue(e) {
+  console.log(e)
+  console.log(e.nativeEvent.target.checked)
+}
+
 const Test = () => {
   return (
     <UserConsumer>
@@ -60,7 +65,11 @@ const Test = () => {
             <FormLabel htmlFor="email-alerts" mb="0">
               Enable email alerts?
             </FormLabel>
-            <Switch id="email-alerts" colorScheme="red" />
+            <Switch
+              id="email-alerts"
+              colorScheme="red"
+              onChange={e => getSwitchValue(e)}
+            />
           </FormControl>
 
           <Stack direction="row">
