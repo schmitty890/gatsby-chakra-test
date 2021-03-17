@@ -15,6 +15,7 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Select,
 } from "@chakra-ui/react"
 import axios from "axios"
 import { UserConsumer } from "../../contexts/UserContext"
@@ -49,7 +50,7 @@ async function fetchTheData() {
 const Test = () => {
   return (
     <UserConsumer>
-      {({ user, changeCurrentUser, toggleCheck }) => (
+      {({ user, changeCurrentUser, toggleCheck, selectChange }) => (
         <div>
           <div>{user}</div>
           <Button colorScheme="blue" onClick={changeCurrentUser}>
@@ -66,6 +67,12 @@ const Test = () => {
               onChange={toggleCheck}
             />
           </FormControl>
+
+          <Select placeholder="Select option" onChange={selectChange}>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </Select>
 
           <Stack direction="row">
             <Badge>Default</Badge>

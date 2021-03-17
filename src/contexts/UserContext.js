@@ -7,6 +7,7 @@ class UserProvider extends Component {
   state = {
     currentUser: "Jason",
     toggleCheck: false,
+    selectOption: null,
   }
 
   changeCurrentUser = () => {
@@ -16,6 +17,12 @@ class UserProvider extends Component {
   getSwitchValue = e => {
     const isChecked = e.nativeEvent.target.checked
     this.setState({ toggleCheck: isChecked })
+  }
+
+  selectChange = e => {
+    console.log(e)
+    const option = e.nativeEvent.target.value
+    this.setState({ selectOption: option })
   }
 
   testInsideComponent = () => {
@@ -35,6 +42,7 @@ class UserProvider extends Component {
           testInsideComponent: this.testInsideComponent,
           logOutTheState: this.logOutTheState,
           toggleCheck: this.getSwitchValue,
+          selectChange: this.selectChange,
         }}
       >
         {this.props.children}
