@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Button } from "@chakra-ui/react"
-import {UserConsumer} from "../../contexts/UserContext"
+import { UserConsumer } from "../../contexts/UserContext"
+import { SecondConsumer } from "../../contexts/SecondContext"
 import { get, set } from "../../services/local-storage"
 import { getRandomUser } from "../../api/randomUser"
 class TestTwo extends Component {
@@ -16,25 +17,40 @@ class TestTwo extends Component {
     testInsideComponent()
   }
 
-  logState = (e, logOutTheState) => {
+  logState = (e, logOutTheState, logOutTheStateSecond) => {
     logOutTheState()
+    logOutTheStateSecond()
     get()
-    set('test name')
+    set("test name")
   }
 
   render() {
     // const queryResults = searchQuery === "" ? bookList : searchResults
     return (
       <UserConsumer>
-        {({user, testInsideComponent, logOutTheState}) => 
-        <div>
-          <div>
-            here is test two {user}
-          </div>
-          <Button colorScheme="blue" onClick={e => this.testItOut(e, testInsideComponent)}>test btn 2</Button>
-          <Button colorScheme="blue" onClick={e => this.logState(e, logOutTheState)}>log out the current state</Button>
-        </div>
-        }
+        {({ user, testInsideComponent, logOutTheState }) => (
+          <SecondConsumer>
+            {({ logOutTheStateSecond }) => (
+              <div>
+                <div>here is test two {user}</div>
+                <Button
+                  colorScheme="blue"
+                  onClick={e => this.testItOut(e, testInsideComponent)}
+                >
+                  test btn 2
+                </Button>
+                <Button
+                  colorScheme="blue"
+                  onClick={e =>
+                    this.logState(e, logOutTheState, logOutTheStateSecond)
+                  }
+                >
+                  log out the current state
+                </Button>
+              </div>
+            )}
+          </SecondConsumer>
+        )}
       </UserConsumer>
     )
   }
